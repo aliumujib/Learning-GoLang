@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package max_api;
+
+option go_package = "github.com/GoLangWebDev/grpc/max_api/proto";
+
+message MaxApiRequest{
+  int32 number = 1;
+}
+
+message MaxApiResponse{
+  int32 max = 1;
+}
+
+service MaxAPIService{
+  rpc Max (stream MaxApiRequest) returns (stream MaxApiResponse);
+}
