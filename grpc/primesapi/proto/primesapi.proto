@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package primes_api;
+
+option go_package = "github.com/GoLangWebDev/grpc/primes_api/proto";
+
+message PrimesApiRequest{
+  int32 number = 1;
+}
+
+message PrimesApiResponse{
+  int32 prime = 1;
+}
+
+service PrimesAPIService{
+  rpc Primes (PrimesApiRequest) returns (stream PrimesApiResponse);
+}
